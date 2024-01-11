@@ -8,7 +8,10 @@ import {
   leadership,
   skills,
   getInTouch,
-  experiences
+  experiences,
+  career,
+  education,
+  academicProject
 } from "./editable-stuff/config.js";
 import MainBody from "./components/home/MainBody";
 import AboutMe from "./components/home/AboutMe";
@@ -20,8 +23,9 @@ import Skills from "./components/home/Skills";
 // import BlogPost from "./components/blog/BlogPost";
 import GetInTouch from "./components/home/GetInTouch.jsx";
 import Leadership from "./components/home/Leadership.jsx";
-
-import Experience from "./components/home/Experience";
+import Education from "./components/home/Education";
+import Career from "./components/home/Experience";
+import AcademicProject from "./components/home/AcademicProject";
 
 const Home = React.forwardRef((props, ref) => {
   return (
@@ -36,17 +40,30 @@ const Home = React.forwardRef((props, ref) => {
       {about.show && (
         <AboutMe
           heading={about.heading}
-          message={about.message}
+          messages={about.messages}
           link={about.imageLink}
           imgSize={about.imageSize}
           resume={about.resume}
         />
       )}
-      {
-        experiences.show && (
-          <Experience experiences={experiences}/>
-        )
-      }
+      {education.show && (
+        <Education
+            heading={education.heading}
+            educations={education.lists}
+        />
+      )}
+      {career.show && (
+          <Career
+              heading={career.heading}
+              careerList={career.lists}
+          />
+      )}
+      {academicProject.show && (
+          <AcademicProject
+              heading={academicProject.heading}
+              finalYearProjectList={academicProject.lists}
+          />
+      )}
       {repos.show && (
         <Project
           heading={repos.heading}
